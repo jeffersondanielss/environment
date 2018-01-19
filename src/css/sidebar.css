@@ -1,0 +1,55 @@
+.sidebar {
+  position: relative;
+  height: 100%;
+  background: #2a273b;
+  width: 10%;
+  float: left;
+  max-width: 70px;
+}
+
+.sidebar__controls {
+  padding: 15px;
+  text-align: center;
+}
+
+.sidebar__btn {
+  width: 9px;
+  height: 9px;
+  border-radius: 10px;
+  display: inline-block;
+  background: gray;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.sidebar__btn--minimize {
+  background: #f6b73e;
+}
+
+.sidebar__btn--close {
+  background: #f55551;
+}
+
+.sidebar__btn--maximize {
+  background: #32c146;
+}
+
+
+.sidebar svg {
+  fill: #FFF;
+}
+
+.sidebar__item {
+  background-color: transparent;
+  border: none;
+  height: 60px;
+  width: 100%;
+  padding: 20px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar__item:hover {
+  background: #D64273
+}

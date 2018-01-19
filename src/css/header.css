@@ -5,38 +5,3 @@
   margin-top: 10px;
   display: block;
 }
-
-.header {
-  width: 100%;
-  position: absolute;
-  right: 0px;
-  z-index: 1;
-}
-
-.header__controls {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.header__btn {
-  width: 10px;
-  height: 12px;
-  border-radius: 10px;
-  display: inline-block;
-  background: gray;
-  border: none;
-  outline: none;
-}
-
-.header__btn--minimize {
-  background: #f6b73e;
-}
-
-.header__btn--close {
-  background: #f55551;
-}
-
-.header__btn--maximize {
-  background: #32c146;
-}
