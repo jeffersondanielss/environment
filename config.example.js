@@ -1,6 +1,5 @@
 const config = {
-  cmd: 'comand',
-
+  log: '/path/to/log/file',
   config: {
     host: 'environment',
     username: 'user',
