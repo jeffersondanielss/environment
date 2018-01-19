@@ -1,7 +1,7 @@
 var Client = require('ssh2').Client;
 var conn = new Client();
 
-const log = ({ cmd, config }) => {
+const command = (cmd, auth) => {
   return new Promise((resolve, reject) => {
     conn.on('ready', function() {
       console.log('Client :: ready');
@@ -16,8 +16,8 @@ const log = ({ cmd, config }) => {
           .on('data', data => resolve(data))
           .stderr.on('data', data => reject(data))
       });
-    }).connect(config);
+    }).connect(auth);
   })
 }
 
-module.exports = log
+module.exports = command
