@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --linux deb",
-    "format": "prettier --config .prettierrc --write \"src/**/*.js\""
+    "format": "prettier --config .prettierrc --write \"src/**/*.js\"",
+    "linter": "xo"
   },
   "keywords": [
     "Electron"
@@ -16,9 +17,19 @@
     "electron": "~1.7.8",
     "electron-builder": "^19.52.1",
     "electron-packager": "^10.1.1",
-    "prettier": "1.10.2"
+    "prettier": "1.10.2",
+    "xo": "^0.18.2"
   },
   "dependencies": {
     "ssh2": "^0.5.5"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": 2,
+    "esnext": true,
+    "globals": [
+      "window",
+      "document"
+    ]
   }
 }

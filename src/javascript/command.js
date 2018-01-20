@@ -1,17 +1,20 @@
-var Client = require('ssh2').Client
-var conn = new Client()
+const Client = require('ssh2').Client
+
+const conn = new Client()
 
 const command = (cmd, auth) => {
   return new Promise((resolve, reject) => {
     conn
-      .on('ready', function() {
+      .on('ready', () => {
         console.log('Client :: ready')
 
-        conn.exec(cmd, function(err, stream) {
-          if (err) throw err
+        conn.exec(cmd, (err, stream) => {
+          if (err) {
+            throw err
+          }
 
           stream
-            .on('close', function(code, signal) {
+            .on('close', (code, signal) => {
               console.log(
                 'Stream :: close :: code: ' + code + ', signal: ' + signal
               )
