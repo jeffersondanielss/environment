@@ -16,7 +16,6 @@ const header = () => {
       ? remote.BrowserWindow.getFocusedWindow().restore()
       : remote.BrowserWindow.getFocusedWindow().maximize()
   })
-
 }
 
 module.exports = header
