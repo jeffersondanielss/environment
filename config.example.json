@@ -1,0 +1,26 @@
+{
+  "envirnments": {
+    "enviromentname": {
+      "host": "environment.com.br",
+      "services": [
+        "nginx",
+        "mongod",
+        "redis"
+      ]
+    },
+    "enviroment2name": {
+      "host": "environment2.com.br",
+      "services": [
+        "nginx",
+        "redis",
+        ""
+      ]
+    }
+  },
+  "log": "/path/to/log/file",
+  "auth": {
+    "host": "environment.com.br",
+    "username": "user",
+    "password": "pass"
+  }
+}
