@@ -1,11 +1,10 @@
-const config = require(`../../../config`)
 const command = require('../command')
-const beforeLoad = require('../events/beforeLoad')
+const beforeload = require('../events/beforeload')
 
-const service = async (serviceName, element) => {
-  beforeLoad(element)
-  const data = await command(`service ${serviceName} status `, config.auth)
+const service = async (serviceName, option, element) => {
+  beforeload(element)
 
+  const data = await command(`sudo service ${serviceName} ${option}`)
   document.querySelector(element).innerHTML = data.toString()
 }
 

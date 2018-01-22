@@ -1,11 +1,11 @@
 const config = require(`../../../config`)
 const command = require('../command')
-const beforeLoad = require('../events/beforeLoad')
+const beforeload = require('../events/beforeload')
 
 const logger = async () => {
-  beforeLoad('.content__box--log .box__area')
-  
-  const data = await command(config.log, config.auth)
+  beforeload('.content__box--log .box__area')
+
+  const data = await command(config.log)
   document.querySelector(
     '.content__box--log .box__area'
   ).innerHTML = data.toString()
