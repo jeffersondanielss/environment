@@ -1,4 +1,4 @@
-const {getFocusedWindow} = require('electron').remote.BrowserWindow
+const { getFocusedWindow } = require('electron').remote.BrowserWindow
 
 const action = require(`./action`)
 
@@ -12,9 +12,9 @@ const header = () => {
   })
 
   action('.sidebar__btn--maximize', () => {
-    return getFocusedWindow().isMaximized() ?
-      getFocusedWindow().restore() :
-      getFocusedWindow().maximize()
+    return getFocusedWindow().isMaximized()
+      ? getFocusedWindow().restore()
+      : getFocusedWindow().maximize()
   })
 }
 

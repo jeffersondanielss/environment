@@ -1,0 +1,17 @@
+.icon {
+  color: #ccc;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.icon path {
+  fill: currentColor;
+}
+
+.icon--off {
+  color: #d00;
+}
+
+.icon--up {
+  color: green;
+}

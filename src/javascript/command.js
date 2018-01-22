@@ -1,8 +1,9 @@
 const Client = require('ssh2').Client
+const { auth } = require('../../config')
 
 const conn = new Client()
 
-const command = (cmd, auth) => {
+const command = cmd => {
   return new Promise((resolve, reject) => {
     conn
       .on('ready', () => {

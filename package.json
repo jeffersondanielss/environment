@@ -7,7 +7,8 @@
     "start": "electron .",
     "pack": "electron-builder --linux deb",
     "format": "prettier --config .prettierrc --write \"src/**/*.js\"",
-    "linter": "xo"
+    "linter": "xo",
+    "precommit": "yarn format && yarn linter"
   },
   "keywords": [
     "Electron"
