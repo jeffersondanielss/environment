@@ -4,8 +4,10 @@ const startservice = require(`./events/startservice`)
 const header = require(`./header`)
 const logger = require(`./actions/logger`)
 const service = require(`./actions/service`)
+const sidebarItem = require(`./components/sidebarItem`)
 
 const start = async () => {
+  sidebarItem()
   header()
   logger()
   getlog()
