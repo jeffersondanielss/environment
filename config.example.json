@@ -1,5 +1,5 @@
 {
-  "envirnments": {
+  "environments": {
     "enviromentname": {
       "host": "environment.com.br",
       "services": [
