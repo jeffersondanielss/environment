@@ -6,9 +6,7 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --linux deb",
-    "format": "prettier --config .prettierrc --write \"src/**/*.js\"",
-    "linter": "xo",
-    "precommit": "yarn format && yarn linter"
+    "linter": "xo"
   },
   "keywords": [
     "Electron"
@@ -18,7 +16,6 @@
     "electron": "~1.7.8",
     "electron-builder": "^19.52.1",
     "electron-packager": "^10.1.1",
-    "prettier": "1.10.2",
     "xo": "^0.18.2"
   },
   "dependencies": {
