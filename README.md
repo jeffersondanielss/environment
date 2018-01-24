@@ -28,6 +28,12 @@
 
 ## Commands
 
+Comando | Descrição 
+------ | ---- 
+yarn start | initialize electron app
+yarn pack | build linux app
+yarn linter | run xo linter
+
 ## Contributing
 
 ## Lisence
