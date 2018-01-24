@@ -28,7 +28,7 @@
 
 ## Commands
 
-Comando | Descrição 
+command | description
 ------ | ---- 
 yarn start | initialize electron app
 yarn pack | build linux app
