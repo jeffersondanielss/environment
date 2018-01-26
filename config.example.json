@@ -2,6 +2,7 @@
   "environments": {
     "enviromentname": {
       "host": "environment.com.br",
+      "log": "/path/to/log/file",
       "services": [
         "nginx",
         "mongod",
@@ -10,6 +11,7 @@
     },
     "enviroment2name": {
       "host": "environment2.com.br",
+      "log": "/path/to/log/file",
       "services": [
         "nginx",
         "redis",
@@ -17,7 +19,6 @@
       ]
     }
   },
-  "log": "/path/to/log/file",
   "auth": {
     "host": "environment.com.br",
     "username": "user",
