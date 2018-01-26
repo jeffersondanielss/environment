@@ -1,8 +1,8 @@
 const action = require(`../action`)
-const logger = require(`../actions/logger`)
+const logging = require(`../actions/logging`)
 
 const getlog = () => {
-  action('.content__box.content__box--full svg', logger)
+  action('.content__box.content__box--full svg', logging)
 }
 
 module.exports = getlog

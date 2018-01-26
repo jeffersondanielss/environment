@@ -26,9 +26,9 @@ const serviceComponent = () =>
     .replace(/,/g, '')
 
 const handleActions = async (name) => {
-  await service(name, 'status', `.content__box--${name} .box__area`)
   await stopservice(name)
   await startservice(name)
+  await service(name, 'status', `.content__box--${name} .box__area`)
 }
 
 const boxService = () => {
