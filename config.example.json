@@ -7,6 +7,9 @@
         "nginx",
         "mongod",
         "redis"
+      ],
+      "scripts": [
+        "./path/to/bash_file.sh"
       ]
     },
     "enviroment2name": {
