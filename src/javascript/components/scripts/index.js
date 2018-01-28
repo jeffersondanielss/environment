@@ -1,9 +1,10 @@
 const {environments} = require(`../../../../config`)
 const service = require('../../actions/service')
+const style = require('./style')
 
 const component = name => {
   const id = name.replace(' ', '-')
-  return `<button class="button" id="${id}">${name}</button>`
+  return `<button class="button" style="${style}" id="${id}">${name}</button>`
 }
 
 const scripts = environments.enviromentname.scripts
