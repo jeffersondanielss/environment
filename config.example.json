@@ -8,9 +8,9 @@
         "mongod",
         "redis"
       ],
-      "scripts": [
-        "./path/to/bash_file.sh"
-      ]
+      "scripts": {
+        "script name": "./path/to/bash_file.sh"
+      }
     },
     "enviroment2name": {
       "host": "environment2.com.br",
