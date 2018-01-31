@@ -4,10 +4,10 @@ const startservice = require(`../../events/startservice`)
 const service = require('../../actions/service')
 const {iconOff,iconUp,iconReload} = require('../icons')
 
-const component = environmentName => `
-<div class="content__box content__box--${environmentName}">
+const component = serviceName => `
+<div class="content__box content__box--${serviceName}">
   <header>
-    ${environmentName}
+    ${serviceName}
     ${iconOff}
     ${iconReload}
     ${iconUp}
@@ -16,24 +16,27 @@ const component = environmentName => `
 </div>
 `
 
-const getServices = () =>
-  environments.enviromentname.services
+const getServices = nameOfEnvironment =>
+  environments[nameOfEnvironment].services
 
-const serviceComponent = () =>
-  getServices()
+const serviceComponent = nameOfEnvironment =>
+  getServices(nameOfEnvironment)
     .map(current => component(current))
     .join(',')
     .replace(/,/g, '')
 
-const handleActions = async (name) => {
+const handleActions = async (name, nameOfEnvironment) => {
   await stopservice(name)
   await startservice(name)
-  await service(name, 'status', `.content__box--${name} .box__area`)
+  await service(name, 'status', `#${nameOfEnvironment} .content__box--${name} .box__area`)
 }
 
-const boxService = () => {
-  document.querySelector('.content__boxes').innerHTML = serviceComponent()
-  getServices().map( handleActions )
+const boxService = nameOfEnvironment => {
+  document.querySelector(`#${nameOfEnvironment} .content__boxes`).innerHTML = serviceComponent(nameOfEnvironment)
+  getServices(nameOfEnvironment)
+    .map( current => {
+      handleActions(current, nameOfEnvironment)
+    })
 }
 
 module.exports = boxService

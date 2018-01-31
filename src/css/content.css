@@ -1,5 +1,10 @@
-.content {
+.window__contents {
   margin-left: 70px;
+}
+
+.content {
+  width: 100%;
+  float: left;
 }
 .content__header {
   background: #FFF;

@@ -2,7 +2,7 @@ const {environments} = require(`../../../../config`)
 const {iconEnvironment} = require('../icons')
 
 const component = environmentName => `
-  <button class="sidebar__item" title="${environmentName}" id="${environmentName}">
+  <button class="sidebar__item" title="${environmentName}" data-id="${environmentName}">
     ${iconEnvironment}
   </button>
 `

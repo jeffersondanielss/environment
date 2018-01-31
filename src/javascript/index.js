@@ -1,17 +1,17 @@
 const getlog = require('./events/getlog')
 const header = require('./header')
-const boxService = require('./components/boxService')
 const sidebarItem = require('./components/sidebarItem')
+const content = require('./components/content')
 const logger = require('./components/logger')
 const scripts = require('./components/scripts')
 
 const start = async () => {
-  logger()
-  boxService()
+  content()
+  //logger()
   sidebarItem()
   header()
-  getlog()
-  scripts()
+  //getlog()
+  //scripts()
 }
 
 const index = () => {
