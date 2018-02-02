@@ -7,16 +7,19 @@ const component = name => {
   return `<button class="button" style="${style}" id="${id}">${name}</button>`
 }
 
-const scripts = environments.enviromentname.scripts
+const hasScripts = enviromentname => environments[enviromentname].hasOwnProperty('scripts')
 
-const madeElements = () =>
-  Object.keys(scripts)
+const getScripts = enviromentname =>
+  environments[enviromentname].scripts
+
+const madeElements = enviromentname =>
+  Object.keys(getScripts(enviromentname))
     .map(current => component(current))
     .join(',')
     .replace(/,/g, '')
 
-const handleActions = (scripts) => {
-  for (let [key, value] of Object.entries(scripts)) {
+const handleActions = enviromentname => {
+  for (let [key, value] of Object.entries(getScripts(enviromentname))) {
     let id = key.replace(' ', '-')
     document.getElementById(id).addEventListener('click', () => {
       console.log('run script', id)
@@ -24,13 +27,15 @@ const handleActions = (scripts) => {
  }
 }
 
-const appendElement = () => {
-  document.querySelector('.content__buttons').innerHTML = madeElements()
+const appendElement = enviromentname => {
+  document.querySelector(`#${enviromentname} .content__buttons`).innerHTML = madeElements(enviromentname)
 }
 
-const boxService = async () => {
-  await appendElement()
-  await handleActions(scripts)
+const boxService = async enviromentname => {
+  if ( hasScripts(enviromentname) ) {
+    await appendElement(enviromentname)
+    await handleActions(enviromentname)
+  }
 }
 
 module.exports = boxService

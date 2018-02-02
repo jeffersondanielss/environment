@@ -3,7 +3,6 @@ const header = require('./header')
 const sidebarItem = require('./components/sidebarItem')
 const content = require('./components/content')
 const logger = require('./components/logger')
-const scripts = require('./components/scripts')
 
 const start = async () => {
   content()
@@ -11,7 +10,6 @@ const start = async () => {
   sidebarItem()
   header()
   //getlog()
-  //scripts()
 }
 
 const index = () => {
