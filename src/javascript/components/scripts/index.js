@@ -1,5 +1,4 @@
 const {environments} = require(`../../../../config`)
-const service = require('../../actions/service')
 const style = require('./style')
 
 const component = name => {

@@ -16,6 +16,9 @@ const component = serviceName => `
 </div>
 `
 
+const getHost = nameOfEnvironment =>
+  environments[nameOfEnvironment].host
+
 const getServices = nameOfEnvironment =>
   environments[nameOfEnvironment].services
 
@@ -26,9 +29,17 @@ const serviceComponent = nameOfEnvironment =>
     .replace(/,/g, '')
 
 const handleActions = async (name, nameOfEnvironment) => {
+  const host = getHost(nameOfEnvironment)
+  const options = [
+    name,
+    'status',
+    `#${nameOfEnvironment} .content__box--${name} .box__area`,
+    host
+  ]
+  
+  await service(options)
   await stopservice(name)
   await startservice(name)
-  await service(name, 'status', `#${nameOfEnvironment} .content__box--${name} .box__area`)
 }
 
 const boxService = nameOfEnvironment => {

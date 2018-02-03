@@ -3,7 +3,9 @@ const { auth } = require('../../config')
 
 const conn = new Client()
 
-const command = cmd => {
+const command = (cmd, host) => {
+  auth.host = host;
+
   return new Promise((resolve, reject) => {
     conn
       .on('ready', () => {

@@ -23,7 +23,6 @@
     }
   },
   "auth": {
-    "host": "environment.com.br",
     "username": "user",
     "password": "pass"
   }
