@@ -3,6 +3,7 @@ const stopservice = require(`../../events/stopservice`)
 const startservice = require(`../../events/startservice`)
 const service = require('../../actions/service')
 const {iconOff,iconUp,iconReload} = require('../icons')
+const {getEnvProp} = require('../../helpers/config')
 
 const component = serviceName => `
 <div class="content__box content__box--${serviceName}">
@@ -16,20 +17,14 @@ const component = serviceName => `
 </div>
 `
 
-const getHost = nameOfEnvironment =>
-  environments[nameOfEnvironment].host
-
-const getServices = nameOfEnvironment =>
-  environments[nameOfEnvironment].services
-
 const serviceComponent = nameOfEnvironment =>
-  getServices(nameOfEnvironment)
+  getEnvProp('services', nameOfEnvironment)
     .map(current => component(current))
     .join(',')
     .replace(/,/g, '')
 
 const handleActions = async (name, nameOfEnvironment) => {
-  const host = getHost(nameOfEnvironment)
+  const host = getEnvProp('scripts', nameOfEnvironment)
   const options = [
     name,
     'status',
@@ -44,7 +39,7 @@ const handleActions = async (name, nameOfEnvironment) => {
 
 const boxService = nameOfEnvironment => {
   document.querySelector(`#${nameOfEnvironment} .content__boxes`).innerHTML = serviceComponent(nameOfEnvironment)
-  getServices(nameOfEnvironment)
+  getEnvProp('services', nameOfEnvironment)
     .map( current => {
       handleActions(current, nameOfEnvironment)
     })
