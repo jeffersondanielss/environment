@@ -5,7 +5,13 @@
 .content {
   width: 100%;
   float: left;
+  display: none;
 }
+
+.active {
+  display: block;
+}
+
 .content__header {
   background: #FFF;
   border-bottom: 1px solid #ddd;
