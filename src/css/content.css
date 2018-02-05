@@ -16,6 +16,7 @@
   background: #FFF;
   border-bottom: 1px solid #ddd;
   padding: 15px;
+  -webkit-app-region:drag;
 }
 
 .content__header strong {
