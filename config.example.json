@@ -1,4 +1,5 @@
 {
+  "username": "user",
   "environments": {
     "enviromentname": {
       "host": "environment.com.br",
@@ -21,9 +22,5 @@
         ""
       ]
     }
-  },
-  "auth": {
-    "username": "user",
-    "password": "pass"
   }
 }
