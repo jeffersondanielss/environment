@@ -16,8 +16,8 @@
 1. [Downloads](#downloads)
 1. [Development](#development)
 1. [Commands](#commands)
-1. [Contributing](#contributing)
-1. [Lisence](#lisence)
+1. [Contributing](/CONTRIBUTING.md)
+1. [Lisence](/LICENSE)
 
 
 ## Introduction
@@ -33,9 +33,4 @@ command | description
 yarn start | initialize electron app
 yarn pack | build linux app
 yarn linter | run xo linter
-
-## Contributing
-
-## Lisence
-
 
