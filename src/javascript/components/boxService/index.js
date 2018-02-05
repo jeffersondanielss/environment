@@ -24,7 +24,7 @@ const serviceComponent = nameOfEnvironment =>
     .replace(/,/g, '')
 
 const handleActions = async (name, nameOfEnvironment) => {
-  const host = getEnvProp('scripts', nameOfEnvironment)
+  const host = getEnvProp('host', nameOfEnvironment)
   const options = [
     name,
     'status',
