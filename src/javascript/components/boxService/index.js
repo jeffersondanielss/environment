@@ -9,9 +9,9 @@ const component = serviceName => `
 <div class="content__box content__box--${serviceName}">
   <header>
     ${serviceName}
-    ${iconOff}
-    ${iconReload}
-    ${iconUp}
+    <span title="Stop"> ${iconOff} </span>
+    <span title="Restart"> ${iconReload} </span>
+    <span title="Start"> ${iconUp} </span>
   </header>
   <div class="box__area"></div>
 </div>
@@ -33,8 +33,8 @@ const handleActions = async (name, nameOfEnvironment) => {
   ]
   
   await service(options)
-  await stopservice(name)
-  await startservice(name)
+  //await stopservice(name)
+  //await startservice(name)
 }
 
 const boxService = nameOfEnvironment => {

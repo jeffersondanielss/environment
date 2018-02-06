@@ -1,6 +1,8 @@
 const { environments } = require(`../../../../config`)
 const boxService = require('../boxService')
 const scripts = require('../scripts')
+const logger = require('../logger')
+const logging = require('../../actions/logging')
 
 const component = name => `
   <div class="content" id="${name}">
@@ -13,11 +15,10 @@ const component = name => `
   </div>
 `
 
-const getEnvironments = () =>
-  Object.keys(environments)
+const allEnvironments = Object.keys(environments)
 
 const mapComponents = () =>
-  getEnvironments()
+  allEnvironments
     .map(current => component(current))
     .join(',')
     .replace(/,/g, '')
@@ -25,8 +26,12 @@ const mapComponents = () =>
 const content = () => {
   document.querySelector('.window__contents').innerHTML = mapComponents()
   
-  getEnvironments().map(current => boxService(current))
-  getEnvironments().map(current => scripts(current))
+  allEnvironments.map( current => {
+    boxService(current)
+    logger(current)
+    scripts(current)
+    logging(current)
+  })
 }
 
 module.exports = content

@@ -2,7 +2,7 @@ const {environments} = require(`../../../../config`)
 const logging = require('../../actions/logging')
 const {iconReload} = require('../icons')
 
-const component = environmentName => `
+const component = () => `
   <div class="content__box content__box--full content__box--log">
       <header class="box__header">
         logs
@@ -13,9 +13,8 @@ const component = environmentName => `
   </div>
 `
 
-const boxService = () => {
-  document.querySelector('.content__logs').innerHTML = component()
-  logging()
+const logger = (envName) => {
+  document.querySelector(`#${envName} .content__logs`).innerHTML = component()
 }
 
-module.exports = boxService
+module.exports = logger
