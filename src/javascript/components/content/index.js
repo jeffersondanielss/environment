@@ -1,8 +1,4 @@
 const { environments } = require(`../../../../config`)
-const boxService = require('../boxService')
-const scripts = require('../scripts')
-const logger = require('../logger')
-const logging = require('../../actions/logging')
 
 const component = name => `
   <div class="content" id="${name}">
@@ -25,13 +21,6 @@ const mapComponents = () =>
 
 const content = () => {
   document.querySelector('.window__contents').innerHTML = mapComponents()
-  
-  allEnvironments.map( current => {
-    boxService(current)
-    logger(current)
-    scripts(current)
-    logging(current)
-  })
 }
 
 module.exports = content

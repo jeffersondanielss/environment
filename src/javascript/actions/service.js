@@ -1,17 +1,15 @@
 const command = require('../command')
 const beforeload = require('../events/beforeload')
 
-const service = async options => {
-  
-  const [serviceName, serviceCommand, element, host ] = options
-  const serviceCmd = `sudo service ${serviceName} ${serviceCommand}`
-  beforeload(element)
+const service = async ({ serviceName,  cmd,  selector,  host }) => {
+  const serviceCmd = `sudo service ${serviceName} ${cmd}`
+  beforeload(selector)
 
   try {
     const data = await command(serviceCmd, host)
-    document.querySelector(element).innerHTML = data.toString()
+    document.querySelector(selector).innerHTML = data.toString()
   } catch (error) {
-    document.querySelector(element).innerHTML = error
+    document.querySelector(selector).innerHTML = error
   }
 }
 

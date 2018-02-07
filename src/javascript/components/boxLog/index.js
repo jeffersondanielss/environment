@@ -13,8 +13,8 @@ const component = () => `
   </div>
 `
 
-const logger = (envName) => {
+const boxLog = (envName) => {
   document.querySelector(`#${envName} .content__logs`).innerHTML = component()
 }
 
-module.exports = logger
+module.exports = boxLog

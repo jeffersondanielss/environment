@@ -1,18 +1,12 @@
 const action = require(`../action`)
 const service = require(`../actions/service`)
 
-const stopService = serviceName => {
-  action(`.content__box--${serviceName} .icon--off`, async () => {
-    await service(
-      `${serviceName}`,
-      'stop',
-      `.content__box--${serviceName} .box__area`
-    )
-    await service(
-      `${serviceName}`,
-      'status',
-      `.content__box--${serviceName} .box__area`
-    )
+const stopService = options => {
+  const { serviceName,  cmd,  selector,  host, envName } = options
+
+  action(`#${envName} .content__box--${serviceName} .icon--off`, async () => {
+    await service({ serviceName,  cmd: 'stop',  selector,  host })
+    await service(options)
   })
 }
 

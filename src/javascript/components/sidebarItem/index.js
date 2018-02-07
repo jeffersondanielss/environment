@@ -1,5 +1,9 @@
 const {environments} = require(`../../../../config`)
 const {iconEnvironment} = require('../icons')
+const boxService = require('../boxService')
+const scripts = require('../scripts')
+const boxLog = require('../boxLog')
+const logging = require('../../actions/logging')
 const {
   showElement,
   arrayFromElements,
@@ -23,6 +27,10 @@ const showContent = envName => {
   element.addEventListener('click', () => {
     hideAllContents(envName)
     showElement(envName)
+    boxService(envName)
+    scripts(envName)
+    boxLog(envName)
+    logging(envName)
   })
 }
 

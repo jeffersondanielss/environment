@@ -25,23 +25,24 @@ const serviceComponent = nameOfEnvironment =>
 
 const handleActions = async (name, nameOfEnvironment) => {
   const host = getEnvProp('host', nameOfEnvironment)
-  const options = [
-    name,
-    'status',
-    `#${nameOfEnvironment} .content__box--${name} .box__area`,
-    host
-  ]
+  const options = {
+    serviceName: name,
+    cmd: 'status',
+    selector: `#${nameOfEnvironment} .content__box--${name} .box__area`,
+    host: host,
+    envName: nameOfEnvironment
+  }
   
   await service(options)
-  //await stopservice(name)
-  //await startservice(name)
+  await startservice(options)
+  await stopservice(options)
 }
 
 const boxService = nameOfEnvironment => {
   document.querySelector(`#${nameOfEnvironment} .content__boxes`).innerHTML = serviceComponent(nameOfEnvironment)
   getEnvProp('services', nameOfEnvironment)
-    .map( current => {
-      handleActions(current, nameOfEnvironment)
+    .map( async current => {
+      await handleActions(current, nameOfEnvironment)
     })
 }
 
