@@ -4,9 +4,11 @@
   "description": "environment",
   "main": "main.js",
   "scripts": {
+    "init": "npm install && npm start",
     "start": "electron .",
+    "precommit": "lint-staged",
     "pack": "electron-builder --linux deb",
-    "linter": "xo"
+    "test": "xo"
   },
   "keywords": [
     "Electron"
@@ -16,6 +18,10 @@
     "electron": "~1.7.8",
     "electron-builder": "^19.52.1",
     "electron-packager": "^10.1.1",
+    "eslint-config-prettier": "^2.9.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.1",
+    "prettier": "^1.9.2",
     "xo": "^0.18.2"
   },
   "dependencies": {
@@ -28,6 +34,30 @@
     "globals": [
       "window",
       "document"
+    ],
+    "extends": [
+      "prettier"
+    ],
+    "rules": {
+      "react/no-unescaped-entities": 0,
+      "react/react-in-jsx-scope": 0,
+      "react/display-name": 0,
+      "react/prop-types": 0,
+      "default-case": 0,
+      "no-case-declarations": 0,
+      "no-return-assign": 0,
+      "new-cap": 0,
+      "import/prefer-default-export": 0
+    },
+    "ignores": [
+      "node_modules"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn test",
+      "prettier --semi false --single-quote --write",
+      "git add"
     ]
   }
 }

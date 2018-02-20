@@ -1,5 +1,5 @@
-const {environments} = require(`../../../../config`)
-const {iconEnvironment} = require('../icons')
+const { environments } = require(`../../../../config`)
+const { iconEnvironment } = require('../icons')
 const boxService = require('../boxService')
 const scripts = require('../scripts')
 const boxLog = require('../boxLog')
@@ -8,7 +8,7 @@ const {
   showElement,
   arrayFromElements,
   hideElement
-} = require('../../helpers/DOM')
+} = require('../../helpers/dom')
 
 const component = environmentName => `
   <button class="sidebar__item" title="${environmentName}" data-id="${environmentName}">
@@ -21,8 +21,17 @@ const menuitem = () =>
     .join(',')
     .replace(/,/g, '')
 
+const showFirstContent = () => {
+  document.querySelectorAll('.content')[0].classList.add('active')
+}
+
+const hideAllContents = () => {
+  const contents = arrayFromElements('.content')
+  contents.map(element => hideElement(element))
+}
+
 const showContent = envName => {
-  const element = document.querySelector(`[data-id=${envName}]`);
+  const element = document.querySelector(`[data-id=${envName}]`)
 
   element.addEventListener('click', () => {
     hideAllContents(envName)
@@ -34,21 +43,8 @@ const showContent = envName => {
   })
 }
 
-const showFirstContent = () => {
-  document
-    .querySelectorAll('.content')[0]
-    .classList
-    .add('active')
-}
-
-const hideAllContents = envName => {
-  contents = arrayFromElements('.content')
-  contents.map(element => hideElement(element))
-}
-
 const onClick = () => {
-  Object.keys(environments)
-    .map(current => showContent(current))
+  Object.keys(environments).map(current => showContent(current))
 }
 
 const sidebar = () => {
