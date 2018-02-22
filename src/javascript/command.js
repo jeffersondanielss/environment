@@ -1,5 +1,5 @@
 const Client = require('ssh2').Client
-const {username} = require('../../config')
+const { username } = require('../../config')
 
 const conn = new Client()
 
@@ -26,9 +26,11 @@ const command = (cmd, host) => {
         })
       })
       .connect({
-        host: host,
-        username: username,
-        privateKey: require('fs').readFileSync(`${process.env['HOME']}/.ssh/id_rsa`)
+        host,
+        username,
+        privateKey: require('fs').readFileSync(
+          `${process.env.HOME}/.ssh/id_rsa`
+        )
       })
   })
 }

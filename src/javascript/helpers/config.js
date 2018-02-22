@@ -1,16 +1,15 @@
 const { environments } = require(`../../../config`)
 
 const getEnvProp = (prop, environment) => {
-  if ( environments[environment].hasOwnProperty(prop) ) {
+  if (Object.hasOwnProperty.call(environments[environment], prop)) {
     return environments[environment][prop]
-
-  } else if ( prop === 'services' ) {
+  } else if (prop === 'services') {
     return []
-  } else {
-    return {}
   }
+
+  return {}
 }
 
-  module.exports = {
-    getEnvProp
-  }
+module.exports = {
+  getEnvProp
+}
